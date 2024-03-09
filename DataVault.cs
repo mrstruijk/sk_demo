@@ -5,17 +5,27 @@ using StereoKit;
 
 public class DataVault
 {
-    const string FILE_PATH = "/sdcard/Documents/";
-    private string fileName = String.Empty;
-    private string output = String.Empty;
+    const string FilePath = "/sdcard/Documents/"; // Careful when using this on other HMDs than Quest, they may have different file structures
+    const string fileNameFormat = "yyyyMMdd-HHmm"; // YearMonthDay-HourMinute
+    const string FileType = ".csv"; // .txt would have been fine too
 
- 
-    public void StoreData(float reactionTime)
+    string _output = String.Empty;
+
+
+    /// <summary>
+    /// Data comes in as a 'list'. Add as much data as you want!
+    /// </summary>
+    /// <param name="newDataSet"></param>
+    public void StoreData(string[] newDataSet)
     {
-        output += reactionTime.ToString() + ", ";
-        fileName = String.Concat(DateTime.Now.ToString("yyyyMMdd-HHmmss"), ".csv");
+        foreach (var newData in newDataSet)
+        {
+            _output += newData.ToString() + ", "; // Add all data to the output text
+        }
 
-        var file = Path.Combine(FILE_PATH, fileName);
-        Platform.WriteFile(file, output);
+        var fileName = String.Concat(DateTime.Now.ToString(fileNameFormat), FileType); // Make a name for yourself
+        var file = Path.Combine(FilePath, fileName);
+
+        Platform.WriteFile(file, _output); // Actually write the file
     }
 }
