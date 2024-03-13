@@ -3,7 +3,7 @@
 
 # Installation Guide For New SK Projects
 
-> Open VS Code
+Open VS Code
 
 > Ctrl + Shift + P --> "Focus on Terminal View"
 
@@ -20,8 +20,10 @@ In the terminal, copy or type the below commands, hitting Enter/Return after eac
 > Go to File -> Open Folder -> Open 'MyFirstStereoKit' folder we created.
 
 If your headset is connected:
+
 `dotnet run --project Projects\Android\MyFirstStereoKit_Android.csproj` 
 
 If your headset is not connected:
+
 `dotnet watch`
 
