@@ -9,7 +9,7 @@ public class Surroundings : IStepper
 	Tex[] _skyboxes;
 
 	PassthroughFBExt _passthroughExtension;
-	Tex _passthroughTexture;
+	Tex _passthroughReflections;
 	Pose _buttonPose;
 
 	Model _model;
@@ -33,9 +33,10 @@ public class Surroundings : IStepper
 
 	#region Initialisation
 
+
 	public bool Initialize()
 	{
-		_passthroughTexture = Renderer.SkyTex; // Store the original skybox for later use
+		_passthroughReflections = Renderer.SkyTex; // Store the original skybox for later use
 
 		_skyboxes = new[] { // Give me a 'list' 
 			Tex.FromCubemapEquirectangular("skybox_1.hdr"), // Add all these lovely .hdr skyboxes to it
@@ -69,6 +70,7 @@ public class Surroundings : IStepper
 		_hasPassthrough = true;
 	}
 
+
 	#endregion
 
 
@@ -79,7 +81,7 @@ public class Surroundings : IStepper
 	/// </summary>
 	public void Step()
 	{
-		DrawPassthroughUIToggler();
+		DrawButton();
 		DrawModel();
 	}
 
@@ -88,20 +90,20 @@ public class Surroundings : IStepper
 	/// Clicky click the button.
 	/// VR. MR. VR. MR. VR. MR.
 	/// </summary>
-	void DrawPassthroughUIToggler()
+	void DrawButton()
 	{
 		UI.WindowBegin("Passthrough Toggler", ref _buttonPose); // Gimme a window...
 		if (UI.Button("Passthrough")) // ... which has a button on it. If I pressed this button... 
 		{
-			if (_passthroughExtension.Enabled == true) // ... and passthrough was on when I pressed the button...
+			if (_passthroughExtension.Enabled == true) // ... and passthrough was enabled when I pressed the button...
 			{
-				_passthroughExtension.Shutdown(); // ... then I want to use the passthrough's IStepper's "Shutdown" method to stop the passthrough functionality...
-				Renderer.SkyTex = _skyboxes[_randomValues.Next(_skyboxes.Length)]; // ... and use a random skybox instead! We're in VR! Note the reflections!!!
+				_passthroughExtension.Shutdown(); // ... then I want to use the passthrough's IStepper's "Shutdown" method to turn off passthrough...
+				Renderer.SkyTex = _skyboxes[_randomValues.Next(_skyboxes.Length)]; // ... and use a random skybox instead! Now we're in VR! Note the reflections!!!
 			}
 			else if (_passthroughExtension.Enabled == false) // If I was already in VR when I pressed the button... 
 			{
 				_passthroughExtension.Initialize(); // ... then I want to use the IStepper's "Initialize" function to start passthrough...
-				Renderer.SkyTex = _passthroughTexture; // ... and I want to set the skybox texture to a neutral one, because otherwise you keep seeing the reflections of the previous skybox!
+				Renderer.SkyTex = _passthroughReflections; // ... and I want to set the skybox texture to a neutral one, because otherwise you keep seeing the reflections of the previous skybox!
 			}
 		}
 		UI.WindowEnd(); // This ends here.
@@ -109,7 +111,7 @@ public class Surroundings : IStepper
 
 
 	/// <summary>
-	/// This draws the model that we loaded from file earlier, and allows you to grab it!
+	/// This draws the model that we loaded from file earlier, and allows you to grab it.
 	/// </summary>
 	void DrawModel()
 	{
