@@ -139,7 +139,7 @@ public class Trials : IStepper
             _trialDuration.ToString()
         };
 
-        // _dataVault.StoreData(data); // DATA BABY! Hard numbers and such. 
+        _dataVault.StoreData(data); // DATA BABY! Hard numbers and such. 
 
         _trialImageObject.Visuals[0].Material = _trialImages[_randomValues.Next(_trialImages.Length)]; // Get a random 'image' from our 'list', and use it as the image of our next trial.
 

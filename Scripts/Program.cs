@@ -8,8 +8,8 @@ class Program
 	{
 		var trials = SK.GetOrCreateStepper<Trials>(); // Trials and tribulations
 
-		// var surroundings = SK.GetOrCreateStepper<Surroundings>(); // Gotta look good.
-		// surroundings.ProvidePassthrough(SK.GetOrCreateStepper<PassthroughFBExt>()); // We're needing some good FB extension! 
+		var surroundings = SK.GetOrCreateStepper<Surroundings>(); // Gotta look good.
+		surroundings.ProvidePassthrough(SK.GetOrCreateStepper<PassthroughFBExt>()); // We're needing some good FB extension! 
 
 		var settings = new SKSettings // Initialize StereoKit
 		{
