@@ -29,6 +29,34 @@ Or to use the live simulator:
 
 
 
+# Installation Guide for this Project
+
+### If github is very new to you:
+
+Hit the green <>CODE icon, and choose "Download ZIP"
+
+In Windows File Explorer go to your Downloads folder. 
+
+Right click on the zipped thing you just downloaded (probably called "sk-demo"), and choose "Extract All"
+
+Go back to VSCode
+
+> Go to File -> Open Folder -> Open 'sk-demo' folder we just unzipped.
+
+To build this project, if your headset is connected:
+
+`dotnet run --project Projects\Android\sk-demo_Android.csproj` 
+
+Or to use the live simulator:
+
+`dotnet watch`
+
+### If you know git a little:
+
+Clone / Fork / Spork. Do the thing. You know how it works. 
+
+
+
 # Tools and Resources
 
 [PsyToolkit VAAST example](https://www.psytoolkit.org/experiment-library/vaast_images.html)
@@ -57,13 +85,16 @@ Or to use the live simulator:
 If things are not working out too well, maybe these things can help out.
 
 `dotnet new console`
+
 `dotnet add package StereoKit`
+
 `dotnet new sk-multi --force`
 
 Sometimes doing the first one a few times may help. 
 I have no idea what the second one does. 
 
 `dotnet workload restore` 
+
 `dotnet workload install wasi-experimental`
 
 The first is to build the project.
@@ -71,11 +102,15 @@ The second is to push the .NET7 version to the HMD.
 The last is the same, but then for if you're using .NET8.
 
 `dotnet publish -c Release Projects\Android\sk_demo_Android.csproj`
+
 `adb install Projects\Android\bin\Release\net7.0-android\publish\com.companyname.sk_demo-Signed.apk`
+
 `adb install Projects\Android\bin\Release\net8.0-android\publish\com.companyname.sk_demo-Signed.apk`
 
 Removing project from HMD / deleting build folder on computer.
 
 `adb uninstall com.companyname.sk_demo`
+
 `rm -r Projects/Android/bin/Release/net7.0-android`
+
 `rm -r Projects/Android/bin/Release/net8.0-android`
