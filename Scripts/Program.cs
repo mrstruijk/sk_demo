@@ -1,4 +1,5 @@
 ﻿using StereoKit;
+using StereoKit.Framework;
 
 
 class Program
@@ -14,7 +15,6 @@ class Program
 		{
 			appName = "sk_demo",
 			assetsFolder = "Assets",
-
 		};
 
 
