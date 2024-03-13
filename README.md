@@ -16,7 +16,13 @@ In the terminal, copy or type the below commands, hitting Enter/Return after eac
 
 > Go to File -> Open Folder -> Open 'MyFirstStereoKit' folder we created.
 
-If your headset is connected:
+If your HMD is connected and you're on .NET7:
+
+`dotnet publish -c Release Projects\Android\MyFirstStereoKit_Android.csproj`
+
+`adb install Projects\Android\bin\Release\net7.0-android\publish\com.companyname.MyFirstStereoKit-Signed.apk`
+
+If your HMD is connected and you're on .NET8:
 
 `dotnet run --project Projects\Android\MyFirstStereoKit_Android.csproj` 
 
@@ -40,13 +46,20 @@ Go back to VSCode
 
 > Go to File -> Open Folder -> Open 'sk-demo' folder we just unzipped.
 
-To build this project, if your headset is connected:
+To build this project, if your HMD is connected and you're still using .NET7:
 
-`dotnet run --project Projects\Android\sk-demo_Android.csproj` 
+`dotnet publish -c Release Projects\Android\sk_demo_Android.csproj`
+
+`adb install Projects\Android\bin\Release\net7.0-android\publish\com.companyname.sk_demo-Signed.apk`
+
+.NET8 whoohoo:
+
+`dotnet run --project Projects\Android\sk_demo_Android.csproj` 
 
 Or to use the live simulator:
 
 `dotnet watch`
+
 
 
 ## If you know git a little:
@@ -78,7 +91,9 @@ Clone / Fork / Spork. Do the thing. You know how it works.
 
 # Panic
 
-If things are not working out too well, maybe these things can help out.
+If things are not working out too well, maybe these things (again) can help out.
+
+`dotnet new install StereoKit.Templates`
 
 `dotnet new console`
 
@@ -93,20 +108,16 @@ I have no idea what the second one does.
 
 `dotnet workload install wasi-experimental`
 
-The first is to build the project.
-The second is to push the .NET7 version to the HMD.
-The last is the same, but then for if you're using .NET8.
-
-`dotnet publish -c Release Projects\Android\sk_demo_Android.csproj`
-
-`adb install Projects\Android\bin\Release\net7.0-android\publish\com.companyname.sk_demo-Signed.apk`
-
-`adb install Projects\Android\bin\Release\net8.0-android\publish\com.companyname.sk_demo-Signed.apk`
-
-Removing project from HMD / deleting build folder on computer.
+Removing project from HMD:
 
 `adb uninstall com.companyname.sk_demo`
+
+Deleting build folder on computer:
 
 `rm -r Projects/Android/bin/Release/net7.0-android`
 
 `rm -r Projects/Android/bin/Release/net8.0-android`
+
+Reboot the machine. Windows likes that.
+
+Alternatively: Despair. 

@@ -17,7 +17,6 @@ public class Trials : IStepper
     Model _trialImageObject;
     Material[] _trialImages;
     Pose _trialImagePose;
-    Tex _currentTrialImage;
 
     float _itiCountDownTimer;
     float _trialDuration;
