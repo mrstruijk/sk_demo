@@ -1,6 +1,3 @@
-# sk_demo
- 
-
 # Installation Guide For New SK Projects
 
 Open VS Code
@@ -31,13 +28,13 @@ Or to use the live simulator:
 
 # Installation Guide for this Project
 
-### If github is very new to you:
+## If github is very new to you:
 
-Hit the green <>CODE icon, and choose "Download ZIP"
+> Hit the green <>CODE icon, and choose "Download ZIP"
 
 In Windows File Explorer go to your Downloads folder. 
 
-Right click on the zipped thing you just downloaded (probably called "sk-demo"), and choose "Extract All"
+> Right click on the zipped file "sk-demo" --> "Extract All"
 
 Go back to VSCode
 
@@ -51,13 +48,16 @@ Or to use the live simulator:
 
 `dotnet watch`
 
-### If you know git a little:
+
+## If you know git a little:
 
 Clone / Fork / Spork. Do the thing. You know how it works. 
 
 
 
 # Tools and Resources
+
+[StereoKit website](https://stereokit.net/)
 
 [PsyToolkit VAAST example](https://www.psytoolkit.org/experiment-library/vaast_images.html)
 
@@ -68,10 +68,6 @@ Clone / Fork / Spork. Do the thing. You know how it works.
 [PolyHaven Public 3D Asset Library - Skyboxes](https://polyhaven.com/hdris)
 
 [Smithsonian Scanned Artifacts](https://3d.si.edu/explore)
-
-
-
-# Learning Resources
 
 [StereoKit Learning Resources](https://stereokit.net/Pages/Guides/Learning-Resources.html)
 
