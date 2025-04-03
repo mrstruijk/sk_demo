@@ -25,7 +25,8 @@ An HMD is not strictly mandatory to code along with the demo, but it does make i
 If your Quest is not yet in 'developer mode', do this too. [Here's a robot explaining how](https://youtu.be/8WxK8QeaEIc?si=xSYWaS7WbxLl8AvQ&t=37).
 
 ## Software
-Check the StereoKit repo and instruxtions on the latest install preceduc
+Check the StereoKit repo and instructions on the latest install precedure.
+
 We're going to need these packages to get going:
 - [.NET7](https://dotnet.microsoft.com/en-us/download/dotnet/7.0) (.NET8 works for most things, but `dotnet watch` seems to require .NET7)
 - [OpenJDK 17](https://learn.microsoft.com/en-gb/java/openjdk/download#openjdk-17) (Neither 8 nor 21 works. It's gotta be 17)
